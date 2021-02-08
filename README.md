@@ -124,24 +124,34 @@ class My extends React.Component {
         var title = 'Test' ;
         const list = ['Test', 'Test 2'];
 
+        // Basic equal if statement
         if (title == 'test') {
             title = 'Basic equal if statement';
+        // Not equal if statement
         } else if (title != 'test') {
-                title = 'Not equal if statement';
+            title = 'Not equal if statement';
+        // Typesafe if statemenet
         } else if (title === false) {
             title = 'Typesafe if statemenet';
+        // Typesafe not if statemenet
         } else if (title !== false) {
             title = 'Typesafe not if statemenet';
+        // In array if statemenet
         } else if (list.includes(title)) {
             title = 'In array if statemenet';
+        // Not in array if statemenet
         } else if (!list.includes(title)) {
             title = 'Not in array if statemenet';
+        // Greater if statement
         } else if (title > 10) {
             title = 'Greater if statement';
+        // And if statement
         } else if (title > 10 && title < 10) {
-            title = 'And if statementt';
+            title = 'And if statement';
+        // Or if statement
         } else if (title > 10 || title != 0) {
-            title = 'And if statementt';
+            title = 'Or if statement';
+        // Else if statement
         } else {
             title = 'Else if statement';
         }
@@ -163,24 +173,34 @@ class My extends React.Component {
 {% set title = 'Test' %}
 {% set list = ['Test', 'Test 2'] %}
 
+{# Basic equal if statement #}
 {% if title == 'test' %}
     {% set title = 'Basic equal if statement';
+{# Basic not equal if statement #}
 {% elseif title != 'test' %}
     {% set title = 'Basic not equal if statement';
+{# Typesafe if statement #}
 {% elseif title same as(false) %} {# Very uncommon in Twig todo typesafe checks #}
     {% set title = 'Typesafe if statement';
+{# Typesafe not if statement #}
 {% elseif title not same as(false) %} {# Very uncommon in Twig todo typesafe checks #}
     {% set title = 'Typesafe not if statement';
+{# In array if statement #}
 {% elseif title in list %
     {% set title = 'In array if statement' %}
+{# Not in array if statement #}
 {% elseif title not in list %
     {% set title = 'Not in array if statement' %}
+{# Greater if statement #}
 {% elseif title > 10 %
     {% set title = 'Greater if statement' %}
+{# And if statement #}
 {% elseif title > 10 and title < 10 %}
     {% set title = 'And if statement' %}
+{# Or if statement #}
 {% elseif title > 10 or title != 0 %}
     {% set title = 'Or if statement' %}
+{# Else if statement #}
 {% else %}
     {% set title = 'Else if statement' %}
 {% endif %}
