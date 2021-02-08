@@ -18,6 +18,10 @@ getting into the Twig Syntax.
 Every Section will first Provide the `React JS` ⚛️ code and then the `Twig` 🌱
 followed by explanation about the difference between them.
 
+Before continue with the overview the best comparison is
+what `JSX` is for `React` (JS), `Twig` is for `Symfony` (PHP).
+So all Business Logic should live outside of it.
+
 **Table of Contents**
 
  - [Outputting a variable](#outputting-a-variable)
