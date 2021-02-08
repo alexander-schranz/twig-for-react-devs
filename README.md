@@ -175,24 +175,24 @@ class My extends React.Component {
 
 {# Basic equal if statement #}
 {% if title == 'test' %}
-    {% set title = 'Basic equal if statement';
+    {% set title = 'Basic equal if statement' %}
 {# Basic not equal if statement #}
 {% elseif title != 'test' %}
-    {% set title = 'Basic not equal if statement';
+    {% set title = 'Basic not equal if statement' %}
 {# Typesafe if statement #}
 {% elseif title same as(false) %} {# Very uncommon in Twig todo typesafe checks #}
-    {% set title = 'Typesafe if statement';
+    {% set title = 'Typesafe if statement' %}
 {# Typesafe not if statement #}
 {% elseif title not same as(false) %} {# Very uncommon in Twig todo typesafe checks #}
-    {% set title = 'Typesafe not if statement';
+    {% set title = 'Typesafe not if statement' %}
 {# In array if statement #}
-{% elseif title in list %
+{% elseif title in list %}
     {% set title = 'In array if statement' %}
 {# Not in array if statement #}
-{% elseif title not in list %
+{% elseif title not in list %}
     {% set title = 'Not in array if statement' %}
 {# Greater if statement #}
-{% elseif title > 10 %
+{% elseif title > 10 %}
     {% set title = 'Greater if statement' %}
 {# And if statement #}
 {% elseif title > 10 and title < 10 %}
