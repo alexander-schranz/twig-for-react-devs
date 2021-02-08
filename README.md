@@ -31,6 +31,7 @@ So all Business Logic should live outside of it.
  - [Base Template](#base-template)
  - [Providing props to templates](#providing-props-to-templates)
  - [Include and override parts](#include-and-override-parts)
+ - [Dynamic Include](#dynamic-include)
  - [Conclusion](#conclusion)
 
 ## Outputting a variable
@@ -766,6 +767,78 @@ template.
 
 As this pattern is very uncommon you should not overuse the
 `embed` tag as it make the templates unreadable.
+
+## Dynamic Include
+
+There are cases mostly when working with some kind of block
+editors where you would need to have an own component / template
+for every block type your block editors does provide.
+
+### Dynamic Include (React JS ⚛️)
+
+In react this kind of things would need additional services
+and some kind of registry to be this dynamic. I will currently
+not provide an example and just show in the next step how it
+would be done in twig.
+
+### Dynamic include (Twig 🌱)
+
+```twig
+{# templates/pages/default.html.twig #}
+
+{% set blocks = [
+    {
+        "type": "text",
+        "title": "My Title",
+        "description": "My Description"
+    },
+    {
+        "type": "quote",
+        "quote": "My Quote",
+    }
+] %}
+
+{% for content in blocks %}
+    {% include 'includes/block-types/' ~ block.type ~ '.html.twig' %}
+{% endfor %}
+```
+
+```twig
+{# templates/includes/block-types/text.html.twig #}
+
+<div class="text">
+    <h3 class="text-title">{{ content.title }}</h3>
+
+    <p class="text-description">{{ content.description }}</p>
+</div>
+```
+
+```twig
+{# templates/includes/block-types/quote.html.twig #}
+
+<div class="quote">
+    <blockquote>{{ content.quote }}</blockquote>
+</div>
+```
+
+### Dynamic Include (Explanation)
+
+In twig as you can just concat the string and include a template
+dynamic you don't need any additional registry or other service
+to map between the block type and template. And as by default
+a included template as access to the parent variables you are also
+not force to map all properties from the parent template to the
+child template as the child template can just access it.
+
+If you still want todo that you could go with something like:
+
+```twig
+{% for block in blocks %}
+    {% include 'includes/block-types/' ~ block.type ~ '.html.twig' with {
+        content: block,
+    } only %}
+{% endfor %}
+```
 
 ## Conclusion
 
