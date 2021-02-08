@@ -401,7 +401,7 @@ In react for rendering anything we first need to create a
 `index.html` where the react application is started which also
 contains the minimal required html for a page.
 
-```
+```html
 <!-- src/index.html --->
 <!doctype html>
 <html lang="en">
@@ -411,6 +411,7 @@ contains the minimal required html for a page.
 <body id="app">
     <script src="app.js"></script>
 </body>
+</html>
 ```
 
 In react a base template could look like the following.
@@ -674,10 +675,10 @@ class Parent extends React.Component {
 ```twig
 {# templates/pages/other-child.html.twig #}
 
-{% extends 'includes/child.html.twig %}
+{% extends 'includes/child.html.twig' %}
 
 {% block header %}
-    {% include 'includes/custom-header.html.twig %}
+    {% include 'includes/custom-header.html.twig' %}
 {% endblock %}
 
 {% block content %}
@@ -685,7 +686,7 @@ class Parent extends React.Component {
 {% endblock %}
 
 {% block footer %}
-    {% include 'includes/custom-footer.html.twig %}
+    {% include 'includes/custom-footer.html.twig' %}
 {% endblock %}
 ```
 
@@ -693,7 +694,7 @@ class Parent extends React.Component {
 {# templates/pages/child.html.twig #}
 
 {% block header %}
-    {% include 'includes/header.html.twig %}
+    {% include 'includes/header.html.twig' %}
 {% endblock %}
 
 {% block content %}
@@ -701,7 +702,7 @@ class Parent extends React.Component {
 {% endblock %}
 
 {% block footer %}
-    {% include 'includes/footer.html.twig %}
+    {% include 'includes/footer.html.twig' %}
 {% endblock %}
 ```
 
@@ -712,7 +713,7 @@ class Parent extends React.Component {
 
 {% embed 'includes/child.html.twig' %}
     {% block header %}
-        {% include 'includes/custom-header.html.twig %}
+        {% include 'includes/custom-header.html.twig' %}
     {% endblock %}
     
     {% block content %}
@@ -720,7 +721,7 @@ class Parent extends React.Component {
     {% endblock %}
     
     {% block footer %}
-        {% include 'includes/custom-footer.html.twig %}
+        {% include 'includes/custom-footer.html.twig' %}
     {% endblock %}
 {% endembed %}
 ```
@@ -729,7 +730,7 @@ class Parent extends React.Component {
 {# templates/pages/child.html.twig #}
 
 {% block header %}
-    {% include 'includes/header.html.twig %}
+    {% include 'includes/header.html.twig' %}
 {% endblock %}
 
 {% block content %}
@@ -737,7 +738,7 @@ class Parent extends React.Component {
 {% endblock %}
 
 {% block footer %}
-    {% include 'includes/footer.html.twig %}
+    {% include 'includes/footer.html.twig' %}
 {% endblock %}
 ```
 
