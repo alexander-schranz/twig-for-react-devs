@@ -1,7 +1,6 @@
 # Twig for react devs
 
-An easy guide for react developers getting into twig template engine
-from symfony.
+An easy guide for react developers getting into PHP Twig template engine from Symfony.
 
 ## Introduction
 
@@ -13,6 +12,9 @@ and did based on that created a lot of websites.
 
 With this article I wanted to make it easier for React Developers
 getting into the Twig Syntax.
+
+Every Section will first Provide the `React JS` ⚛️ code and then the `Twig` 🌱
+followed by explanation about the difference between them.
 
 **Table of Contents**
 
@@ -30,7 +32,7 @@ getting into the Twig Syntax.
 In the first example we will to the most simpliest thing just
 outputting a variable we did create in our component / template.
 
-### Outputting a variable (React JS)
+### Outputting a variable (React JS ⚛️)
 
 ```js
 // src/views/My.js
@@ -46,7 +48,7 @@ class My extends React.Component {
 }
 ```
 
-### Outputting a variable (Twig)
+### Outputting a variable (Twig 🌱)
 
 ```twig
 {# templates/pages/my.html.twig #}
@@ -56,9 +58,9 @@ class My extends React.Component {
 <h1>{{ title }}</h1>
 ```
 
-### Outputting a variable (Summary)
+### Outputting a variable (Explanation)
 
-Outputting a variable in twig and JSX is very similar instead
+Outputting a variable in Twig and JSX is very similar instead
 of `{variable}` you use `{{ variable }}`. The spaces are optional
 but recommended by  the [Twig coding standards](https://twig.symfony.com/doc/3.x/coding_standards.html).
 
@@ -69,7 +71,7 @@ to create content which will provide you raw HTML code you would
 like to render in this case you want not that your variable you
 want to outputted does get escaped.
 
-## Outputting raw HTML (ReactJS)
+### Outputting raw HTML (React JS ⚛️)
 
 ```js
 // src/views/My.js
@@ -85,7 +87,7 @@ class My extends React.Component {
 }
 ```
 
-### Outputting raw HTML (Twig)
+### Outputting raw HTML (Twig 🌱)
 
 ```twig
 {# templates/pages/my.html.twig #}
@@ -97,12 +99,12 @@ class My extends React.Component {
 </div>
 ```
 
-### Outputting raw HTML (Summary)
+### Outputting raw HTML (Explanation)
 
-Both (`ReactJS` and `Twig`) escape variables by default so no HTML
+Both (`React JS` and `Twig`) escape variables by default so no HTML
 injected without  a call of an additional prop or filter.
 
-There are in twig other ways to disable `autoescape` over a whole
+There are in Twig other ways to disable `autoescape` over a whole
 content. See for this the [official Twig Docs](https://twig.symfony.com/doc/3.x/api.html#escaper-extension).
 
 I personally recommend only using the `|raw` filter todo this kind
@@ -110,7 +112,7 @@ of things.
 
 ## If statements
 
-### If statements (ReactJS)
+### If statements (React JS ⚛️)
 
 ```js
 // src/views/My.js
@@ -153,7 +155,7 @@ class My extends React.Component {
 }
 ```
 
-### If statements (Twig)
+### If statements (Twig 🌱)
 
 ```twig
 {# templates/pages/my.html.twig #}
@@ -165,9 +167,9 @@ class My extends React.Component {
     {% set title = 'Basic equal if statement';
 {% elseif title != 'test' %}
     {% set title = 'Basic not equal if statement';
-{% elseif title same as(false) %} {# Very uncommon in twig todo typesafe checks #}
+{% elseif title same as(false) %} {# Very uncommon in Twig todo typesafe checks #}
     {% set title = 'Typesafe if statement';
-{% elseif title not same as(false) %} {# Very uncommon in twig todo typesafe checks #}
+{% elseif title not same as(false) %} {# Very uncommon in Twig todo typesafe checks #}
     {% set title = 'Typesafe not if statement';
 {% elseif title in list %
     {% set title = 'In array if statement' %}
@@ -190,24 +192,24 @@ class My extends React.Component {
 </div>
 ```
 
-### If statements (Summary)
+### If statements (Explanation)
 
 For if statement the [if tag](https://twig.symfony.com/doc/3.x/tags/if.html)
 is used. Where in JavaScript it is very common to have
 typesafe check with `===`. This is very uncommon in twig
-because twig is really focused being a template engine and
+because Twig is really focused being a template engine and
 not a language where you should build business logic.
 
-It is still possible in twig doing a typesafe check using 
+It is still possible in Twig doing a typesafe check using 
 the [same as test](https://twig.symfony.com/doc/3.x/tests/sameas.html).
 
 Twig like PHP supports also the ternary operator (`?:`) and the
 null-coalescing operator (`??`). Read more about them in the
-[twig operators documentation](https://twig.symfony.com/doc/3.x/templates.html#other-operators).
+[Twig operators documentation](https://twig.symfony.com/doc/3.x/templates.html#other-operators).
 
 ## Loops
 
-## Loops (React JS)
+### Loops (React JS ⚛️)
 
 ```js
 // src/views/My.js
@@ -233,7 +235,7 @@ class My extends React.Component {
 }
 ```
 
-### Loops (Twig)
+### Loops (Twig 🌱)
 
 ```twig
 {# templates/pages/my.html.twig #}
@@ -254,7 +256,7 @@ class My extends React.Component {
 </ul>
 ```
 
-### Loops (Summary)
+### Loops (Explanation)
 
 Where in `JavaScript` different way of looping exist in twig
 you will work with the [for](https://twig.symfony.com/doc/3.x/tags/for.html)
@@ -280,7 +282,7 @@ templates easier for example:
 {% endfor %}
 ```
 
-By default inside the `for` loop twig provide some magic variable
+By default inside the `for` loop Twig provide some magic variable
 called `loop` which will provide you the following data:
 
 ```twig
@@ -296,15 +298,15 @@ called `loop` which will provide you the following data:
 {% endfor %}
 ```
 
-Where in `ReactJS` you maybe need a `counter` or accessing the length
+Where in `React JS` you maybe need a `counter` or accessing the length
 in `Twig` the `loop` variable is available inside every loop and make
 it easy to add CSS classes to first or last items of a loop.
 
 See here also the Twig documentation about the [for](https://twig.symfony.com/doc/3.x/tags/for.html)
 tag.
 
-As `ReactJS` has access to all `JavaScript` array available function
-twig also has it tricks to make outputting of html very simple.
+As `React JS` has access to all `JavaScript` array available function
+Twig also has it tricks to make outputting of html very simple.
 
 So for example let see that we have variable which content is the
 following:
@@ -373,7 +375,7 @@ The first you mostly create when building a website is a base
 template or base component which contains all things which your
 templates have in common like Navigation, Footer, Header.
 
-### Base Template (ReactJs)
+### Base Template (React JS ⚛️)
 
 In react for rendering anything we first need to create a
 `index.html` where the react application is started which also
@@ -473,10 +475,10 @@ class Homepage extends React.Component {
 
 This way we created a reusable base which can be used in all components again.
 
-### Base Template (Twig)
+### Base Template (Twig 🌱)
 
 To implement the same as we did above we need to create the following
-in our twig structure. As twig is server rendered by PHP in Symfony
+in our Twig structure. As Twig is server rendered by PHP in Symfony
 we will create the `base.html.twig` which will contain the html which
 was in react rendered by `index.html` and `Base.js`.
 
@@ -527,15 +529,15 @@ We will also create the `homepage.html.twig` with a custom header.
 {% endblock %}
 ```
 
-### Base Template (Summary)
+### Base Template (Explanation)
 
 As you see in this example the `extends` will say from which template
-they should inherit and with the `block` feature of twig we can then
+they should inherit and with the `block` feature of Twig we can then
 provide content or override the defined `blocks` like `header` and
-`content` in our twig template.
+`content` in our Twig template.
 
 Instead of importing a components like its done react we will use
-in twig the `include` block/method of twig to render the content of another twig
+in Twig the `include` block/method of Twig to render the content of another twig
 template.
 
 Has in this case a look at the [extends tag documentation](https://twig.symfony.com/doc/3.x/tags/extends.html)
@@ -544,7 +546,7 @@ from the official [Twig Documentation](https://twig.symfony.com/).
 
 ## Providing props to templates
 
-### Providing props to templates (React JS)
+### Providing props to templates (React JS ⚛️)
 
 ```js
 // src/views/Parent.js
@@ -561,7 +563,7 @@ class Parent extends React.Component {
 }
 ```
 
-### Providing props to templates (Twig)
+### Providing props to templates (Twig 🌱)
 
 ```twig
 {% set title = 'Some Title' %}
@@ -569,9 +571,9 @@ class Parent extends React.Component {
 {% include 'includes/child.html.twig' %}
 ```
 
-### Providing props to templates (Summary)
+### Providing props to templates (Explanation)
 
-Where in `ReactJS` the only way to give properties from a parent
+Where in `React JS` the only way to give properties from a parent
 to a child is giving them as a `props` in `Twig` by default a
 included `Template` has access to all variables which were defined
 or are accessible in the parent template.
@@ -599,7 +601,7 @@ Read more about the include tag in the official [Twig Include Documentation](htt
 
 Coming soon ...
 
-### Include and override parts (React JS)
+### Include and override parts (React JS ⚛️)
 
 ```js
 // src/views/Parent.js
@@ -641,7 +643,7 @@ class Parent extends React.Component {
 }
 ```
 
-### Include and override parts (Twig) (using include)
+### Include and override parts (Twig 🌱) (using include)
 
 ```twig
 {# templates/pages/parent.html.twig #}
@@ -683,7 +685,7 @@ class Parent extends React.Component {
 {% endblock %}
 ```
 
-### Include and override parts (Twig) (using embed)
+### Include and override parts (Twig 🌱) (using embed)
 
 ```twig
 {# templates/pages/parent.html.twig #}
@@ -719,15 +721,15 @@ class Parent extends React.Component {
 {% endblock %}
 ```
 
-### Include and override parts (Summary)
+### Include and override parts (Explanation)
 
-In twig there are different solutions for this kind of task.
-Where mostly you would work in twig with `extends` from a
+In Twig there are different solutions for this kind of task.
+Where mostly you would work in Twig with `extends` from a
 specific `base.html.twig` and maybe have 1-3 different kind
-of this base template, its very uncommon in twig that you
+of this base template, its very uncommon in Twig that you
 include a component template and override a part of it.
 
-Mostly twig devs will go here with a additional twig template
+Mostly Twig devs will go here with a additional Twig template
 and use `extends` and in the other template an `include` tag
 to the new template.
 
@@ -740,20 +742,20 @@ As this pattern is very uncommon you should not overuse the
 
 ## Conclusion
 
-Twig and ReactJS (JSX) are in some cases very similar how they
+Twig and React JS (JSX) are in some cases very similar how they
 render and output things. Twig is really focused of just creating
 HTML or the outputted file format, like what `JSX` was designed for.
 
-Where in `ReactJS` you have access to all JavaScript functions,
-Twig is very strict here as it is designed that all your Business Logic
-lives in your PHP code before twig is callded.
-So if your twig code begins to look messy or you have a lot of logic
+Where in `React JS` you have access to all JavaScript functions,
+`Twig` is very strict here as it is designed that all your Business Logic
+lives in your PHP code before Twig is callded.
+So if your Twig code begins to look messy or you have a lot of logic
 statements in it, it is a hint that you did accidentally move your 
 Business Logic which should be handled in your PHP Controller
-into your template rendering.
+into your template rendering, which should be avoided.
 
 I hope with this article I can give React Developers an easier
-way to get into twig.
+way to get into Twig.
 
 For getting an overview of all available Twig functionality I recommend
 to read over the [Official Twig Documentation](https://twig.symfony.com/).
