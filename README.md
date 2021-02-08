@@ -2,6 +2,8 @@
 
 An easy guide for react developers getting into PHP Twig template engine from Symfony.
 
+![Header](images/logos/social.png)
+
 ## Introduction
 
 Hello 👋,
