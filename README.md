@@ -18,6 +18,11 @@ getting into the Twig Syntax.
 Every Section will first Provide the `React JS` ⚛️ code and then the `Twig` 🌱
 followed by explanation about the difference between them.
 
+At the start I want to mention here that `Twig` was inspired a lot by
+[Jinja2 Template Engine](https://github.com/pallets/jinja)
+developed for the Django Python Framework, but was improved
+over the years with other new features by the Symfony Team.
+
 Before continue with the overview the best comparison is
 what `JSX` is for `React` (JS), `Twig` is for `Symfony` (PHP).
 So all Business Logic should live outside of it.
@@ -618,7 +623,7 @@ defined in the parent template this can be avoided using the `only`
 keyword:
 
 ```twig
-{% set someTtile = 'Some Title' %}
+{% set someTitle = 'Some Title' %}
 
 {% include 'includes/child.html.twig' with { title: someTitle } only %}
 ```
@@ -627,7 +632,8 @@ Read more about the include tag in the official [Twig Include Documentation](htt
 
 ## Include and override parts
 
-Coming soon ...
+Sometimes you need to include and override a specific template
+or Component. In this section we will look at this parts.
 
 ### Include and override parts (React JS ⚛️)
 
